@@ -8,7 +8,7 @@
 #ifndef INC_MPU6050_H_
 #define INC_MPU6050_H_
 
-#include "stm32f4xx_hal.h"
+#include "I2C.h"
 
 #define MPU6050_ADDR (0x68 << 1)
 #define MPU6050_ID 0x68
@@ -78,14 +78,6 @@ HAL_StatusTypeDef MPU6050_ReadGyro(MPU6050 *dev);
 HAL_StatusTypeDef MPU6050_ReadRegister(MPU6050 *dev, uint8_t reg, uint8_t *data);
 HAL_StatusTypeDef MPU6050_ReadRegisters(MPU6050 *dev, uint8_t reg, uint8_t *data, uint8_t length);
 HAL_StatusTypeDef MPU6050_WriteRegister(MPU6050 *dev, uint8_t reg, uint8_t *data);
-
-int MPU6050_I2CStart(MPU6050 *dev);
-int MPU6050_I2CAddress(MPU6050 *dev);
-int MPU6050_I2CWrite(MPU6050 *dev);
-int MPU6050_I2CRead(MPU6050 *dev);
-int MPU6050_I2CStop(MPU6050 *dev);
-
-
 
 
 #endif /* INC_MPU6050_H_ */

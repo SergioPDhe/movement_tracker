@@ -120,6 +120,8 @@ int main(void)
 
   MPU6050_Init(&acc, &hi2c1);
 
+  int errors = 0;
+
   char usbBuf[64];
 
 
