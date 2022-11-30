@@ -14,6 +14,7 @@
 uint8_t MPU6050_Init(MPU6050 *dev, I2C_HandleTypeDef *i2cHandle)
 {
   dev->i2cHandle = i2cHandle;
+  dev->address = (0x68 << 1);
 
   dev->accelerometer[0] = 0.0f;
   dev->accelerometer[1] = 0.0f;
@@ -41,7 +42,8 @@ uint8_t MPU6050_Init(MPU6050 *dev, I2C_HandleTypeDef *i2cHandle)
 
   uint8_t regData;
 
-  status = MPU6050_ReadRegister(dev, WHO_AM_I, &regData);
+  //status = MPU6050_ReadRegister(dev, WHO_AM_I, &regData);
+  status = I2C_ReadByte(dev->i2cHandle, dev->address, WHO_AM_I, &regData);
   errNum += (status != HAL_OK);
 
   if (regData != MPU6050_ID)

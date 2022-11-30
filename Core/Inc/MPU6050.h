@@ -59,7 +59,7 @@
 typedef struct
 {
   I2C_HandleTypeDef *i2cHandle;
-  uint8_t address = (0x68 << 1);
+  uint8_t address;
   float accelerometer[3];
   float gyroscope[3];
   float temp;

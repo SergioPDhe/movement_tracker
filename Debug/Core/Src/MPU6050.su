@@ -1,7 +1,7 @@
 MPU6050.c:14:9:MPU6050_Init	24	static
-MPU6050.c:57:19:MPU6050_ReadTemp	24	static
-MPU6050.c:72:19:MPU6050_ReadAccel	32	static
-MPU6050.c:91:19:MPU6050_ReadGyro	32	static
-MPU6050.c:113:19:MPU6050_ReadRegister	40	static
-MPU6050.c:118:19:MPU6050_ReadRegisters	40	static
-MPU6050.c:122:19:MPU6050_WriteRegister	40	static
+MPU6050.c:70:19:MPU6050_ReadTemp	24	static
+MPU6050.c:85:19:MPU6050_ReadAccel	32	static
+MPU6050.c:104:19:MPU6050_ReadGyro	32	static
+MPU6050.c:126:19:MPU6050_ReadRegister	40	static
+MPU6050.c:131:19:MPU6050_ReadRegisters	40	static
+MPU6050.c:135:19:MPU6050_WriteRegister	40	static
