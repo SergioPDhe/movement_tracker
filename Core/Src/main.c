@@ -120,9 +120,9 @@ int main(void)
 
   MPU6050_Init(&acc, &hi2c1);
 
-  int errors = 0;
+  //int errors = 0;
 
-  char usbBuf[64];
+  //char usbBuf[64];
 
 
 
@@ -336,11 +336,16 @@ void StartReadIMU(void *argument)
   /* Infinite loop */
   for(;;)
   {
-      MPU6050_ReadAccel(&acc);
-      MPU6050_ReadTemp(&acc);
-      MPU6050_ReadGyro(&acc);
 
-      osDelay(100);
+    //MPU6050_ReadAccel(&acc);
+
+    //MPU6050_ReadTemp(&acc);
+
+    //MPU6050_ReadGyro(&acc);
+
+    MPU6050_ReadSensors(&acc);
+
+    osDelay(100);
   }
   osThreadTerminate(NULL);
   /* USER CODE END 5 */

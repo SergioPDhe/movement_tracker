@@ -2649,7 +2649,9 @@ HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
       return HAL_ERROR;
     }
 
-    if (hi2c->XferSize == 0U)
+    ////////////// ADDR is set
+
+    if (hi2c->XferSize == 0U) // size = 0: clear ADDR and generate stop
     {
       /* Clear ADDR flag */
       __HAL_I2C_CLEAR_ADDRFLAG(hi2c);
@@ -2657,7 +2659,7 @@ HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
       /* Generate Stop */
       SET_BIT(hi2c->Instance->CR1, I2C_CR1_STOP);
     }
-    else if (hi2c->XferSize == 1U)
+    else if (hi2c->XferSize == 1U) // size = 1: clear ACK, clear ADDR, generate stop
     {
       /* Disable Acknowledge */
       CLEAR_BIT(hi2c->Instance->CR1, I2C_CR1_ACK);
@@ -2792,7 +2794,7 @@ HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress,
           hi2c->XferCount--;
         }
       }
-      else
+      else // if not <=3U
       {
         /* Wait until RXNE flag is set */
         if (I2C_WaitOnRXNEFlagUntilTimeout(hi2c, Timeout, tickstart) != HAL_OK)
